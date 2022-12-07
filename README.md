@@ -1,2 +1,2 @@
 # Deloitte-Bootcamp-2.0
-Docker
+Docker and Jenkins exercises
