@@ -15,7 +15,6 @@ pipeline{
                         sh "sudo apt-get update"
                         sh "sudo apt install curl -y"
                         sh "curl https://get.docker.com | sudo bash"
-                        sh "usermod -aG docker \$(whoami)"
                         sh "mkdir -p $DOCKER_CONFIG/cli-plugins"
                         sh "curl -SL https://github.com/docker/compose/releases/download/v2.14.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose"
                         sh "sudo chmod +x /usr/local/bin/docker-compose"
