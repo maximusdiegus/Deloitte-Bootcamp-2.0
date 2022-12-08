@@ -1,7 +1,7 @@
 pipeline{
         agent any
         environment {
-                DB_PASSWORD = "1234"
+                DB_PASSWORD = '1234'
         }
         stages{
             stage('Stage 1: Clone repo'){
@@ -12,8 +12,8 @@ pipeline{
             }
             stage('Stage 2: Install Docker & Docker Compose'){
                 steps{
-                        sh "sudo apt-get update -S"
-                        sh "sudo apt install curl -y | curl jq"
+                        
+                        sh "sudo apt install curl -y"
                         sh "curl https://get.docker.com | sudo bash"
                         sh "usermod -aG docker \$(whoami)"
                         sh "mkdir -p $DOCKER_CONFIG/cli-plugins"
