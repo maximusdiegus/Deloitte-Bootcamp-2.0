@@ -1,20 +1,22 @@
 # Use Python 3.6 or later as a base image
 FROM python:3.6
+FROM nginx:1.23-alpine
 
 # Copy contents into image
-COPY requirements.txt .
-COPY . .
+ COPY ./requirements.txt /app/requirements.txt
 
 # Install pip dependencies from requirements
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Set YOUR_NAME environment variable
-LABEL version="1.0"
+ARG variable="Diego"
+ENV YOUR_NAME=$variable
 
 # Expose the correct port
-EXPOSE 8080
+EXPOSE 5000
 
 # Create an entrypoint
-ENTRYPOINT [ "python", "app.py" ]
+ENTRYPOINT [ "python" ]
 
-CMD python3 app.py
+CMD ["app.py" ]
+
